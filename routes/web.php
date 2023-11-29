@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return inertia('Home', ['test' => 'working']);
-});
+})->name('home');
 
 Route::get('/about-us', function () {
     return inertia('About', ['about_us' => 'working']);
-});
+})->name('about-us');
