@@ -18,5 +18,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/about-us', function () {
+    sleep(2);
     return inertia('About', ['about_us' => 'working']);
 })->name('about-us');
+
+Route::post('/logout', function () {
+    return 'logout!';
+})->name('logout');

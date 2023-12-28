@@ -1,14 +1,15 @@
 <template>
     <div>
         <h1>Inertiajs is {{ test }}</h1>
-
-        <Link :href="route('about-us')">Go to about us</Link>
+        <Nav/>
     </div>
 </template>
 
 <script>
-import { Link } from "@inertiajs/inertia-vue3";
+import Nav from "../Shared/Nav";
+
 export default {
+    components: {Nav},
     props: ["test"],
 };
 </script>
