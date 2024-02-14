@@ -1,14 +1,15 @@
 <template>
-    <div>
-        <h1>inertiajs is {{ about_us }}</h1>
-        <Link :href="route('home')">Go to Home</Link>
-    </div>
+    <Layout>
+        <div>
+            <h1>inertiajs is {{ about_us }}</h1>
+        </div>
+    </Layout>
 </template>
 
-<script>
-export default {
-    components: {
-        props: ["about_us"],
-    },
-};
+<script setup>
+import Layout from "@/Shared/Layout";
+
+defineProps({
+    about_us: String
+})
 </script>
