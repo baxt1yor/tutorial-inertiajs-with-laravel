@@ -12,15 +12,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return inertia('Home', ['test' => 'working']);
+    return inertia('Home', ['test' => 'home']);
 })->name('home');
 
 Route::get('/about-us', function () {
-    sleep(2);
-    return inertia('About', ['about_us' => 'working']);
+    return inertia('About', ['about_us' => 'about']);
 })->name('about-us');
+
+Route::get('users', function () {
+    return inertia('User', [
+        'time' => now()->toTimeString()
+    ]);
+})->name('users');
 
 Route::post('/logout', function () {
     return 'logout!';

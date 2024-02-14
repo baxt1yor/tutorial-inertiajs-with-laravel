@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
-const path = require('path');
+
+const webConfigs = require('./webpack.config');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,20 +12,11 @@ const path = require('path');
  |
  */
 
-mix.webpackConfig({
-    resolve: {
-        alias: {
-            ziggy: path.resolve('vendor/tightenco/ziggy/dist'),
-        },
-    },
-    output: {
-        chunkFilename: "js/[name].js?id=[chunkhash]",
-    },
-});
-
 mix.js("resources/js/app.js", "public/js")
+    .extract()
     .vue({version: 3})
     .postCss("resources/css/app.css", "public/css", [
         require('tailwindcss'),
     ])
+    .webpackConfig(webConfigs)
     .version();
